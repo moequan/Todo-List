@@ -1,5 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+//ROUTES
+const todoRouter = require('./routes/todo');
+
+/** INIT THE SERVER */
+const app = express();
+
+/** LOGS */
+app.use(logger('dev'));
 
 const {
   getTodo,
