@@ -2,9 +2,9 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=todo-list:* nodemon --inspect ./bin/www --ignore 'data/*'",
   },
   "repository": {
     "type": "git",
