@@ -3,12 +3,12 @@ const router = express.Router();
 
 
 const {
-  getUsers,
-  addUser,
-  getUser,
-  deleteUser,
-  updateUser
-} = require('../controllers/usersController');
+  getTodo,
+  addTodo,
+  getTodo,
+  deleteTodo,
+  updateTodo
+} = require('../controllers/todoController');
 
 router
   .route('/')
