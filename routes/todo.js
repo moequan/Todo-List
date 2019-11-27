@@ -1,32 +1,24 @@
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const router = express.Router();
 
-//ROUTES
-const todoRouter = require('./routes/todo');
-
-/** INIT THE SERVER */
-const app = express();
-
-/** LOGS */
-app.use(logger('dev'));
 
 const {
-  getTodo,
-  addTodo,
-  getTodo,
-  deleteTodo,
-  updateTodo
-} = require('../Controller/todoController');
+  getUsers,
+  addUser,
+  getUser,
+  deleteUser,
+  updateUser
+} = require('../controllers/usersController');
 
 router
   .route('/')
   .get(getTodo)
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send({ name: 'MyToDo' });
-});
+
+router
+  .route('/:id')
+  .get(getTodo)
+  .delete(deleteTodo)
+  .put(updateTodo);
 
 module.exports = router;
