@@ -11,7 +11,7 @@ const {
 
 router
   .route('/')
-  .get(getUsers)
+  .get(getTodo)
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
