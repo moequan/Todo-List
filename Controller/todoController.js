@@ -13,19 +13,15 @@ exports.getTodo = async (req, res, next) => {
 
 exports.addTodo = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
+    const todo= new Todo(req.body);
 
-    const todo = new Todo(req.body);
     await todo.save();
-    res.status(200).send(todo)
-  } catch (error) {
-    next(error)
+    res.status(200).send(todo);
+  } catch (e) {
+    next(e);
   }
-
 };
+
 
 exports.getTodo = async (req, res, next) => {
   try {
@@ -40,7 +36,7 @@ exports.getTodo = async (req, res, next) => {
 
 };
 
-exports.deleteUser = async (req, res, next) => {
+exports.deleteTodo = async (req, res, next) => {
   try {
     const todo = await User.findByIdAndDelete(req.params.id);
     res.status(200).send(todo)
@@ -50,7 +46,7 @@ exports.deleteUser = async (req, res, next) => {
   res.status(200).send(todo);
 };
 
-exports.updateUser = async (req, res, next) => {
+exports.updateTodo = async (req, res, next) => {
 
   try {
     const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });

@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
-onst {Schema} = mongoose;
+Schema = mongoose.Schema;
 
 const TodoSchema = new Schema({
-  listItem: {
-    type: String,
-    required: true,
-    unique: true
-  }
+      listItem: {
+        type: String,
+        required: true,
+        unique: true
+      }
+    })
 
-  module.exports = mongoose.model("Todo", TodoSchema)
+      module.exports = mongoose.model("Todo", TodoSchema)
