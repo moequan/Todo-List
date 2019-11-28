@@ -1,7 +1,7 @@
 const Todo = require("../Models/Todo")
 const createError = require("http-errors")
 
-exports.getTodo = async (req, res, next) => {
+exports.getTodos = async (req, res, next) => {
   try {
     const todos = await Todo.find();
     res.status(200).send(todos);
@@ -22,18 +22,17 @@ exports.addTodo = async (req, res, next) => {
 };
 
 
-// exports.getTodo = async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const todo = await Todo.findById(id);
-//     if (!todo) throw new createError.NotFound();
-//     res.status(200).send(user);
-//
-//   } catch (error) {
-//     next(error)
-//   }
-//
-// };
+exports.getTodo = async (req, res, next) => {
+  try {
+    const todo = await Todo.findById(req.params.id);
+    if (!todo) throw new createError.NotFound();
+    res.status(200).send(todo);
+
+  } catch (error) {
+    next(error)
+  }
+
+};
 
 exports.deleteTodo = async (req, res, next) => {
   try {

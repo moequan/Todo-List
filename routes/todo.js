@@ -12,12 +12,12 @@ const {
 
 router
   .route('/')
-  .get(getTodo)
+  .get(getTodos)
   .post(addTodo)
 
 
 router
-  .route('/:listItem')
+  .route('/:id')
   .get(getTodo)
   .delete(deleteTodo)
   .put(updateTodo)
